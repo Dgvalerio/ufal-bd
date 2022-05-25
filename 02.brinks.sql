@@ -6,7 +6,12 @@ select *
 from cliente;
 
 # 2. Nome dos filmes que já foram locados pela cliente ‘Juliana Santos’
-
+select distinct f.nome
+from filme f
+         join unidade u on f.codigo = u.codigo_filmeFK
+         join locar l on u.codigo = l.codigo_unidadeFK
+         join cliente c on l.login_clienteFK = c.login
+where c.nome = 'Juliana Santos';
 
 # 3. Nome dos filmes que possuem unidades com legenda em ‘Português’ ou ‘Inglês’
 
