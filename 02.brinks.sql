@@ -65,3 +65,15 @@ order by aux.counting desc
 limit 1;
 
 # 8. Nome dos filmes que possuem unidades com áudio em ‘Português’ e ‘Inglês’
+select distinct f.nome
+from filme f
+         join unidade u on f.codigo = u.codigo_filmeFK
+         join possuir_audio pa on u.codigo = pa.codigo_unidadeFK
+         join idioma i on i.codigo = pa.codigo_idiomaFK
+         join (select distinct u.codigo_filmeFK
+               from unidade u
+                        join possuir_audio pa on u.codigo = pa.codigo_unidadeFK
+                        join idioma i on i.codigo = pa.codigo_idiomaFK
+               where i.nome = 'Português') aux on aux.codigo_filmeFK = f.codigo
+where i.nome = 'Inglês'
+order by f.nome;
