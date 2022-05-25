@@ -35,7 +35,14 @@ where f.codigo not in (select distinct f.codigo
 order by f.nome;
 
 # 5. O nome dos clientes que já alugaram filme com legenda em ‘Inglês’.
-
+select distinct c.nome
+from cliente c
+         join locar l on c.login = l.login_clienteFK
+         join unidade u on u.codigo = l.codigo_unidadeFK
+         join possuir_legenda pl on u.codigo = pl.codigo_unidadeFK
+         join idioma i on pl.codigo_idiomaFK = i.codigo
+where i.nome = 'Inglês'
+order by c.nome;
 
 # 6. O nome do filme e o número de unidades que existem na locadora para cada filme.
 
