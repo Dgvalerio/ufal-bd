@@ -5,7 +5,7 @@ VALUES ('aline', 'aline mariana');
 INSERT INTO cliente
 VALUES ('bete', 'Bernadete Carvalho');
 INSERT INTO cliente
-VALUES ('joao', 'Jo\u00e3o Carlos');
+VALUES ('joao', 'João Carlos');
 INSERT INTO cliente
 VALUES ('joca', 'jonas carmelo');
 INSERT INTO cliente
@@ -34,16 +34,16 @@ VALUES (8, 'velocidade maxima');
 INSERT INTO filme
 VALUES (9, 'o meu primeiro amor');
 INSERT INTO filme
-VALUES (10, 'coragem, o c\u00e3o covarde');
+VALUES (10, 'coragem, o cão covarde');
 
 INSERT INTO idioma
-VALUES (1, 'portugu\u00eas');
+VALUES (1, 'português');
 INSERT INTO idioma
-VALUES (2, 'ingl\u00eas');
+VALUES (2, 'inglês');
 INSERT INTO idioma
 VALUES (3, 'espanhol');
 INSERT INTO idioma
-VALUES (4, 'franc\u00eas');
+VALUES (4, 'francês');
 
 INSERT INTO unidade
 VALUES (1, 1, 2.0E0);
