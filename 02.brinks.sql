@@ -2,8 +2,9 @@
 use UFAL_MYSQL;
 
 # 1. Nomes dos clientes da locadora
-select *
-from cliente;
+select nome
+from cliente
+order by nome;
 
 # 2. Nome dos filmes que já foram locados pela cliente ‘Juliana Santos’
 select distinct f.nome
@@ -11,10 +12,17 @@ from filme f
          join unidade u on f.codigo = u.codigo_filmeFK
          join locar l on u.codigo = l.codigo_unidadeFK
          join cliente c on l.login_clienteFK = c.login
-where c.nome = 'Juliana Santos';
+where c.nome = 'Juliana Santos'
+order by f.nome;
 
 # 3. Nome dos filmes que possuem unidades com legenda em ‘Português’ ou ‘Inglês’
-
+select distinct f.nome
+from filme f
+         join unidade u on f.codigo = u.codigo_filmeFK
+         join possuir_legenda pl on u.codigo = pl.codigo_unidadeFK
+         join idioma i on pl.codigo_idiomaFK = i.codigo
+where i.nome = 'Português' or i.nome = 'Inglês'
+order by f.nome;
 
 # 4. O nome e o código dos filmes que nunca foram alugados.
 
