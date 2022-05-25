@@ -2,7 +2,8 @@
 use UFAL_MYSQL;
 
 # 1. Nomes dos clientes da locadora
-
+select *
+from cliente;
 
 # 2. Nome dos filmes que já foram locados pela cliente ‘Juliana Santos’
 
