@@ -1,0 +1,19 @@
+# docker-compose up -d
+version: "3.9"
+
+services:
+  database:
+    container_name: ufal-mysql
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ufal
+    ports:
+      - "3306:3306"
+
+  my-admin:
+    container_name: mysql-admin
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
