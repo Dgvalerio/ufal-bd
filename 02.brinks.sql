@@ -45,7 +45,11 @@ where i.nome = 'Inglês'
 order by c.nome;
 
 # 6. O nome do filme e o número de unidades que existem na locadora para cada filme.
-
+select f.nome, COUNT(f.nome)
+from filme f
+         join unidade u on f.codigo = u.codigo_filmeFK
+group by f.nome
+order by f.nome;
 
 # 7. O nome do(s) cliente(s) que locou mais vezes o filme ‘AXL’
 
