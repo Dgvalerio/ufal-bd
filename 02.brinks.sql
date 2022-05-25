@@ -21,11 +21,18 @@ from filme f
          join unidade u on f.codigo = u.codigo_filmeFK
          join possuir_legenda pl on u.codigo = pl.codigo_unidadeFK
          join idioma i on pl.codigo_idiomaFK = i.codigo
-where i.nome = 'Português' or i.nome = 'Inglês'
+where i.nome = 'Português'
+   or i.nome = 'Inglês'
 order by f.nome;
 
 # 4. O nome e o código dos filmes que nunca foram alugados.
-
+select f.nome, f.codigo
+from filme f
+where f.codigo not in (select distinct f.codigo
+                       from filme f
+                                join unidade u on f.codigo = u.codigo_filmeFK
+                                join locar l on u.codigo = l.codigo_unidadeFK)
+order by f.nome;
 
 # 5. O nome dos clientes que já alugaram filme com legenda em ‘Inglês’.
 
