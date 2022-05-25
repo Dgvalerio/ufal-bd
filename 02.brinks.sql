@@ -52,6 +52,16 @@ group by f.nome
 order by f.nome;
 
 # 7. O nome do(s) cliente(s) que locou mais vezes o filme ‘AXL’
-
+select aux.nome
+from (select c.nome, count(f.nome) counting
+      from cliente c
+               join locar l on c.login = l.login_clienteFK
+               join unidade u on l.codigo_unidadeFK = u.codigo
+               join filme f on u.codigo_filmeFK = f.codigo
+      where f.nome = 'Titanic'
+      group by c.nome) as aux
+group by aux.nome
+order by aux.counting desc
+limit 1;
 
 # 8. Nome dos filmes que possuem unidades com áudio em ‘Português’ e ‘Inglês’
